@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Miraggio Sajonia</title>
+  <title>Miragio Sajonia</title>
   <style>
     /* === Paleta base (marrones, dorados, verdes) === */
     :root{
@@ -59,6 +59,10 @@
       .drawer a{padding:10px 12px}
     }
 
+    /* Suavizado de scroll y compensación del header */
+    /* scroll suave removido */
+    /* offset de anclas removido */
+
     /* === Body === */
     .container{max-width:1200px; margin:0 auto; padding:0 16px}
 
@@ -84,18 +88,53 @@
     .amen h3{margin:2px 0 4px; font-size:1rem}
     .amen p{margin:0; color:var(--muted); font-size:.92rem}
 
-    /* Tour (slider simple) */
-    .tour{margin-top:10px}
-    .slider{position:relative; border:1px solid var(--ring); border-radius:14px; overflow:hidden; background:#0b0d12}
-    .track{display:flex; transition:transform .35s ease}
-    .slide{min-width:100%; position:relative}
-    .slide img{width:100%; height:420px; object-fit:cover; display:block}
-    .cap{position:absolute; left:0; right:0; bottom:0; padding:10px 12px; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 80%); color:#eae7e1}
-    .navBtns{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; padding:0 6px}
-    .navBtns button{appearance:none; border:1px solid #ffffff25; background:#00000050; color:#fff; border-radius:10px; padding:6px 10px; cursor:pointer}
-    .dots{display:flex; gap:6px; justify-content:center; margin-top:8px}
-    .dots button{width:8px; height:8px; border-radius:999px; border:0; background:#ffffff30}
-    .dots button[aria-current="true"]{background:var(--gold-400)}
+    /* Imágenes apiladas (tamaño original) */
+    .image-stack{display:flex; flex-direction:column; gap:20px}
+    .image-stack figure{margin:0; border:1px solid var(--ring); border-radius:14px; overflow:hidden; background:color-mix(in oklab, var(--paper) 92%, black 8%)}
+    .image-stack img{display:block; width:auto; max-width:100%; height:auto; margin:0 auto; background:#0b0d12}
+    .image-stack figcaption{padding:10px 12px; color:var(--muted)}
+      /* Animación de despliegue en menú móvil */
+    .drawer{display:none}
+    @media (max-width: 880px){
+      nav{display:none}
+      .menu-btn{display:inline-flex; align-items:center; gap:8px}
+      .drawer{display:block; background: color-mix(in oklab, var(--paper) 92%, black 8%); border-bottom:1px solid var(--ring); max-height:0; overflow:hidden; opacity:0; transform-origin: top; transition: max-height .3s ease, opacity .25s ease;}
+      .drawer.open{max-height:260px; opacity:1}
+      .drawer .nav{flex-direction:column; padding:8px 12px}
+      .drawer a{padding:10px 12px}
+    }
+
+    /* Suavizado de scroll y compensación del header */
+    /* scroll suave removido */
+    /* offset de anclas removido */
+      /* === Footer === */
+    .site-footer{margin-top:32px; border-top:1px solid var(--ring); background: color-mix(in oklab, var(--paper) 92%, black 8%)}
+    .site-footer .bar{max-width:1200px; margin:0 auto; padding:16px; display:flex; align-items:center; gap:16px}
+    .spacer{flex:1}
+    .foot-links{display:flex; gap:10px; flex-wrap:wrap}
+    .foot-links a{color:var(--ink); text-decoration:none; padding:6px 10px; border-radius:10px; border:1px solid transparent}
+    .foot-links a:hover{background:#ffffff10}
+    .foot-meta{border-top:1px solid var(--ring); padding:10px 16px; text-align:center; color:var(--muted); font-size:.9rem}
+      /* === Video placeholder === */
+    .video-card{display:block}
+    .video-frame{position:relative; aspect-ratio:16/9; border-radius:12px; overflow:hidden; border:1px solid var(--ring); background:#0b0d12}
+    .video-frame img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(.9)}
+    .play-btn{position:absolute; inset:0; margin:auto; width:68px; height:68px; border-radius:999px; border:1px solid #ffffff55; background: radial-gradient(circle at 30% 30%, #ffffff40, #00000055); color:#fff; font-size:26px; cursor:pointer; box-shadow: var(--shadow)}
+    .play-btn:hover{transform:scale(1.03)}
+
+    /* === Contacto === */
+    .contact-card form{display:flex; flex-direction:column; gap:14px}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width:780px){ .grid-2{grid-template-columns:1fr} }
+    .field{display:flex; flex-direction:column; gap:6px}
+    .field label{font-weight:600}
+    .field input, .field textarea{background:#0f1311; border:1px solid var(--ring); color:var(--ink); border-radius:10px; padding:10px 12px}
+    .field input::placeholder, .field textarea::placeholder{color:#8f928d}
+    .err{color:#ffb4b4; min-height:1em}
+    .actions{display:flex; align-items:center; gap:10px}
+      /* Alias para botón primario (compatibilidad con 'btn-primary') */
+    .btn-primary{border:1px solid #d3c08955; color:#0e1a14; background:linear-gradient(135deg, var(--gold-400), var(--gold-500)); border-radius:12px; padding:10px 14px; cursor:pointer}
+    .btn-primary:hover{filter:brightness(1.03)}
   </style>
 </head>
 <body>
@@ -112,7 +151,7 @@
           </svg>
         </span>
         <span>
-          <span class="name">Miraggio Sajonia</span>
+          <span class="name">Miragio Sajonia</span>
           <small class="tag">Arquitectura</small>
         </span>
       </a>
@@ -189,72 +228,123 @@
 
   <!-- Tour de fotografías por secciones -->
   <section id="tours" class="container section">
-    <h2>Tour de fotografías</h2>
-
-    <div class="tour card" data-slider>
-      <h3>Área social</h3>
-      <div class="slider">
-        <div class="track">
-          <figure class="slide"><img src="https://picsum.photos/seed/social1/1200/700" alt="Área social 1"><figcaption class="cap">Lorem ipsum dolor sit amet, consectetur.</figcaption></figure>
-          <figure class="slide"><img src="https://picsum.photos/seed/social2/1200/700" alt="Área social 2"><figcaption class="cap">Etiam porta sem malesuada magna mollis.</figcaption></figure>
-          <figure class="slide"><img src="https://picsum.photos/seed/social3/1200/700" alt="Área social 3"><figcaption class="cap">Aenean lacinia bibendum nulla sed consectetur.</figcaption></figure>
-        </div>
-        <div class="navBtns"><button data-prev>◀</button><button data-next>▶</button></div>
-      </div>
-      <div class="dots" data-dots></div>
-    </div>
-
-    <div class="tour card" data-slider>
-      <h3>Unidades</h3>
-      <div class="slider">
-        <div class="track">
-          <figure class="slide"><img src="https://picsum.photos/seed/unit1/1200/700" alt="Unidades 1"><figcaption class="cap">Curabitur blandit tempus porttitor.</figcaption></figure>
-          <figure class="slide"><img src="https://picsum.photos/seed/unit2/1200/700" alt="Unidades 2"><figcaption class="cap">Nullam id dolor id nibh ultricies vehicula.</figcaption></figure>
-          <figure class="slide"><img src="https://picsum.photos/seed/unit3/1200/700" alt="Unidades 3"><figcaption class="cap">Donec sed odio dui.</figcaption></figure>
-        </div>
-        <div class="navBtns"><button data-prev>◀</button><button data-next>▶</button></div>
-      </div>
-      <div class="dots" data-dots></div>
-    </div>
-
-    <div class="tour card" data-slider>
-      <h3>Rooftop</h3>
-      <div class="slider">
-        <div class="track">
-          <figure class="slide"><img src="https://picsum.photos/seed/roof1/1200/700" alt="Rooftop 1"><figcaption class="cap">Vivamus sagittis lacus vel augue laoreet.</figcaption></figure>
-          <figure class="slide"><img src="https://picsum.photos/seed/roof2/1200/700" alt="Rooftop 2"><figcaption class="cap">Cras justo odio, dapibus ac facilisis in.</figcaption></figure>
-          <figure class="slide"><img src="https://picsum.photos/seed/roof3/1200/700" alt="Rooftop 3"><figcaption class="cap">Maecenas faucibus mollis interdum.</figcaption></figure>
-        </div>
-        <div class="navBtns"><button data-prev>◀</button><button data-next>▶</button></div>
-      </div>
-      <div class="dots" data-dots></div>
+    <h2>Imágenes del proyecto</h2>
+    <p class="muted" style="margin-bottom:10px">Archivos en tamaño original (escala 1:1 dentro del ancho disponible).</p>
+    <div class="image-stack">
+      <figure>
+        <img src="assets/imagenes/FACHADA-FRONTAL.png" alt="Fachada frontal" loading="lazy"/>
+        <figcaption><strong>Fachada frontal</strong> · Vista principal del edificio desde la calle.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/imagenes/FACHADA-LAT-DERECHA.png" alt="Fachada lateral derecha" loading="lazy"/>
+        <figcaption><strong>Fachada lateral derecha</strong> · Elevación lateral con tratamiento de balcones.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/imagenes/FACHADA-LAT-IZQUIERDO.png" alt="Fachada lateral izquierda" loading="lazy"/>
+        <figcaption><strong>Fachada lateral izquierda</strong> · Ventanas corridas y parasoles.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/imagenes/FACHADA-POSTERIOR.png" alt="Fachada posterior" loading="lazy"/>
+        <figcaption><strong>Fachada posterior</strong> · Vista interna con retiros y áreas de servicio.</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- Videos / Contacto (placeholders) -->
   <section id="videos" class="container section">
     <h2>Videos</h2>
-    <p class="muted">Próximamente: recorrido en video del proyecto. Lorem ipsum dolor sit amet.</p>
+    <div class="video-card card">
+      <div class="video-frame">
+        <!-- Placeholder 16:9 con botón de reproducción -->
+        <button class="play-btn" type="button" aria-label="Reproducir video">▶</button>
+        <img src="https://picsum.photos/seed/miragio-video/1280/720" alt="Placeholder del video del proyecto" />
+      </div>
+      <p class="muted" style="margin-top:10px">Próximamente el recorrido en video del proyecto. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
   </section>
   <section id="contacto" class="container section">
     <h2>Contacto</h2>
-    <p class="muted">Dejanos tu consulta y coordinamos una reunión. Lorem ipsum dolor sit amet.</p>
+    <div class="contact-card card">
+      <form id="contactForm" novalidate>
+        <div class="grid-2">
+          <div class="field">
+            <label for="name">Nombre y apellido</label>
+            <input id="name" name="name" type="text" required placeholder="Tu nombre" />
+            <small class="err" data-err-for="name"></small>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="nombre@correo.com" />
+            <small class="err" data-err-for="email"></small>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="phone">Teléfono (opcional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="Ej. +595 991 123 456" />
+          </div>
+          <div class="field">
+            <label for="subject">Asunto</label>
+            <input id="subject" name="subject" type="text" placeholder="Consulta sobre Miragio Sajonia" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Escribí tu mensaje..."></textarea>
+          <small class="err" data-err-for="message"></small>
+        </div>
+        <div class="actions">
+          <button class="btn primary btn-primary" type="submit">Enviar consulta</button>
+          <span id="formStatus" class="muted" role="status" aria-live="polite" style="margin-left:10px"></span>
+        </div>
+      </form>
+    </div>
   </section>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="bar">
+      <a href="#inicio" class="brand" aria-label="Volver al inicio">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 20V9l7-4v15"/>
+            <path d="M12 20V5l7 4v11"/>
+            <path d="M7 13h2m0 3H7m8-2h2"/>
+          </svg>
+        </span>
+        <span>
+          <span class="name">Miraggio Sajonia</span>
+          <small class="tag">Arquitectura</small>
+        </span>
+      </a>
+      <div class="spacer"></div>
+      <nav class="foot-links" aria-label="Enlaces de pie">
+        <a href="#edificio">El edificio</a>
+        <a href="#tours">Tours</a>
+        <a href="#videos">Videos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="foot-meta">© 2025 Miraggio Sajonia · Todos los derechos reservados</div>
+  </footer>
 
   <script>
-    // Toggle del menú móvil
-    const btn = document.getElementById('menuBtn');
-    const drawer = document.getElementById('mobileMenu');
-    btn?.addEventListener('click', ()=>{
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
-      drawer.hidden = open; // si estaba abierto, ocultar
-    });
+    // Toggle del menú móvil (desplegable con animación)
+const btn = document.getElementById('menuBtn');
+const drawer = document.getElementById('mobileMenu');
+btn?.addEventListener('click', ()=>{
+  const open = btn.getAttribute('aria-expanded') === 'true';
+  const next = !open;
+  btn.setAttribute('aria-expanded', String(next));
+  drawer.hidden = !next; // mostrar/ocultar realmente el contenedor
+  drawer.classList.toggle('open', next);
+});
 
-    // Sombra en header al hacer scroll
-    const header = document.getElementById('siteHeader');
-    const onScroll = ()=> header.classList.toggle('scrolled', window.scrollY > 4);
-    document.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+const header = document.getElementById('siteHeader');
+// (scroll suave removido por solicitud)
+
+// Sombra en header al hacer scroll
+const onScroll = ()=> header.classList.toggle('scrolled', window.scrollY > 4);
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
     // Cerrar menú móvil al navegar
     drawer?.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
@@ -262,36 +352,6 @@
       drawer.hidden = true;
     }));
 
-    // ===== Slider simple reutilizable =====
-    document.querySelectorAll('[data-slider]').forEach(initSlider);
-
-    function initSlider(root){
-      const track = root.querySelector('.track');
-      const slides = Array.from(root.querySelectorAll('.slide'));
-      const prev = root.querySelector('[data-prev]');
-      const next = root.querySelector('[data-next]');
-      const dotsC = root.querySelector('[data-dots]');
-      let idx = 0;
-
-      function go(i){
-        idx = (i + slides.length) % slides.length;
-        track.style.transform = `translateX(${-idx*100}%)`;
-        updateDots();
-      }
-      function updateDots(){
-        dotsC.innerHTML = '';
-        slides.forEach((_,i)=>{
-          const b = document.createElement('button');
-          if(i===idx) b.setAttribute('aria-current','true');
-          b.addEventListener('click', ()=>go(i));
-          dotsC.appendChild(b);
-        });
-      }
-      prev.addEventListener('click', ()=>go(idx-1));
-      next.addEventListener('click', ()=>go(idx+1));
-      window.addEventListener('resize', ()=>go(idx));
-      go(0);
-    }
-  </script>
+    </script>
 </body>
 </html>
