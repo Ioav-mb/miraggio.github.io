@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Miragio Sajonia</title>
+  <title>Miraggio Sajonia</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,13 +13,10 @@
       <a href="#inicio" class="brand">
         <span class="logo" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 20V9l7-4v15"/>
-            <path d="M12 20V5l7 4v11"/>
-            <path d="M7 13h2m0 3H7m8-2h2"/>
-          </svg>
+          <path d="M5 20V9l7-4v15"/><path d="M12 20V5l7 4v11"/><path d="M7 13h2m0 3H7m8-2h2"/></svg>
         </span>
         <span>
-          <span class="name">Miragio Sajonia</span>
+          <span class="name">Miraggio Sajonia</span>
           <small class="tag">Arquitectura</small>
         </span>
       </a>
@@ -27,7 +24,8 @@
       <nav aria-label="Principal">
         <div class="nav">
           <a href="#inicio" aria-current="page">Inicio</a>
-          <a href="#edificio">El edificio</a>
+          <a href="#edificio">Proyecto</a>
+          <a href="/galeria.html">Galeria</a>
           <a href="#tours">Imágenes</a>
           <a href="#planos">Planos</a>
           <a href="#contacto">Contacto</a>
@@ -39,100 +37,174 @@
     <div class="drawer" id="mobileMenu" hidden>
       <div class="nav">
         <a href="#inicio">Inicio</a>
-        <a href="#edificio">El edificio</a>
+        <a href="#edificio">Proyecto</a>
         <a href="#tours">Imágenes</a>
         <a href="#planos">Planos</a>
-        <a href="#videos">Videos</a>
         <a href="#contacto">Contacto</a>
       </div>
     </div>
   </header>
 
-  <!-- Imagen principal -->
+  <!-- Hero con imagen del ZIP (también estará en la galería) -->
   <section id="inicio" class="container">
     <figure class="hero-visual">
-      <img src="https://picsum.photos/seed/miragio-hero/1400/760" alt="Render principal del proyecto"/>
+      <!-- Reemplaza el src por la imagen “de portada” de tu ZIP -->
+      <img src="assets/galeria/hero-principal.jpg" alt="Vista principal del proyecto Miraggio Sajonia"/>
       <figcaption class="overlay">
-        <span class="badge">Proyecto Miragio Sajonia</span>
+        <span class="badge">Proyecto Miraggio Sajonia</span>
       </figcaption>
     </figure>
   </section>
 
-  <!-- Descripción + amenities -->
-  <section id="edificio" class="container section">
-    <div class="cols">
-      <div class="card">
-        <h2>El edificio</h2>
-        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, lorem at faucibus tincidunt, nibh nibh imperdiet ipsum, id interdum odio justo a ipsum. Cras porttitor, purus vel aliquet varius, orci risus maximus augue, nec vehicula augue orci in dolor.</p>
+  <!-- Sección invitación a la galería -->
+  <section class="container section">
+    <div class="cta-gallery card">
+      <div class="cta-copy">
+        <h2>Explorá la galería</h2>
+        <p class="muted">
+          Recorré imágenes en alta resolución del proyecto: fachadas, plantas y
+          detalles.
+        </p>
+        <a class="btn-primary" href="galeria.html">Ver galería completa</a>
       </div>
-      <div class="card">
-        <h2>Amenities</h2>
-        <div class="amen-grid">
-          <article class="amen"><span class="ic" aria-hidden="true">🏊</span><div><h3>Piscina</h3><p>Zonas de relax y solárium para disfrutar todo el año.</p></div></article>
-          <article class="amen"><span class="ic" aria-hidden="true">🏋️</span><div><h3>Gimnasio</h3><p>Espacio equipado para entrenamientos diarios.</p></div></article>
-          <article class="amen"><span class="ic" aria-hidden="true">🌿</span><div><h3>Terraza verde</h3><p>Diseño sustentable con especies nativas.</p></div></article>
-          <article class="amen"><span class="ic" aria-hidden="true">🅿️</span><div><h3>Cocheras</h3><p>Acceso cómodo y seguro para residentes y visitas.</p></div></article>
-          <article class="amen"><span class="ic" aria-hidden="true">🎞️</span><div><h3>SUM / Cine</h3><p>Salón de usos múltiples para eventos y reuniones.</p></div></article>
-          <article class="amen"><span class="ic" aria-hidden="true">🛡️</span><div><h3>Seguridad</h3><p>Ingreso controlado y monitoreo 24/7.</p></div></article>
-        </div>
+      <div class="cta-preview">
+        <!-- mini–mosaico (usa 2–3 imágenes reales de tu ZIP) -->
+        <img src="assets/galeria/interior-05.jpg" alt="Preview 1">
+        <img src="assets/galeria/interior-16.jpg" alt="Preview 2">
+        <img src="assets/galeria/interior-04.jpg" alt="Preview 3">
       </div>
     </div>
   </section>
 
-  <!-- Imágenes del proyecto -->
+  <!-- Descripción + amenities -->
+  <!-- Descripción + amenities (estética Mid-Century) -->
+<section id="edificio" class="container section">
+  <div class="cols">
+    <!-- Descripción -->
+    <div class="card">
+      <h2>Descripción del Proyecto</h2>
+      <p class="muted">
+        Inspirado en la arquitectura <strong>Mid-Century</strong>, el proyecto privilegia líneas limpias, 
+        volúmenes puros y una estructura claramente legible. La <strong>planta baja</strong> se concibe
+        permeable hacia el jardín frontal una “planta libre” que facilita el acceso y la
+        relación interior-exterior— mientras que el volumen superior ordena las viviendas en una
+        modulación regular.
+      </p>
+      <p class="muted">
+        Un <strong>núcleo vertical vidriado</strong> funciona como linterna del edificio y organiza la
+        circulación. Los <strong>balcones corridos</strong>, aleros y <strong>celosías/parasol</strong> remiten a la tradición
+        moderna tropical, controlando el asoleamiento sin perder vistas. La <strong>azotea</strong> culmina con
+        terrazas y áreas sociales que prolongan la vida comunitaria al aire libre.
+      </p>
+      <p class="muted">
+        La paleta propone <em>revocos claros</em> combinados con <em>maderas cálidas</em>, detalles en
+        <em>metal pintado</em> y <em>piedra</em> en planta baja, reforzando el carácter sobrio, atemporal y
+        honesto de la estética Mid-Century.
+      </p>
+    </div>
+
+    <!-- Amenities -->
+    <div class="card">
+      <h2>Amenities</h2>
+      <div class="amen-grid">
+        <article class="amen">
+          <span class="ic" aria-hidden="true">🛎️</span>
+          <div><h3>Lobby & Control</h3><p>Acceso principal con materiales cálidos y visual franca al jardín.</p></div>
+        </article>
+
+        <article class="amen">
+          <span class="ic" aria-hidden="true">🛗</span>
+          <div><h3>Núcleo vidriado</h3><p>Ascensor y escalera iluminados naturalmente, eje organizador del conjunto.</p></div>
+        </article>
+
+        <article class="amen">
+          <span class="ic" aria-hidden="true">🚗</span>
+          <div><h3>Cocheras en planta baja</h3><p>Estacionamiento cómodo con circulación clara y segura.</p></div>
+        </article>
+
+        <article class="amen">
+          <span class="ic" aria-hidden="true">🏋️</span>
+          <div><h3>Gimnasio en entrepiso</h3><p>Área de entrenamiento con expansión exterior y buena ventilación.</p></div>
+        </article>
+
+        <article class="amen">
+          <span class="ic" aria-hidden="true">🍽️</span>
+          <div><h3>SUM / Quincho</h3><p>Salón flexible para encuentros, integrado a patio y terrazas.</p></div>
+        </article>
+
+        <article class="amen">
+          <span class="ic" aria-hidden="true">🌿</span>
+          <div><h3>Paisajismo Mid-Century</h3><p>Jardineras lineales y especies tropicales que acompañan las fachadas.</p></div>
+        </article>
+
+        <article class="amen">
+          <span class="ic" aria-hidden="true">🪟</span>
+          <div><h3>Balcones & parasoles</h3><p>Barandas horizontales y celosías que filtran sol y aportan ritmo.</p></div>
+        </article>
+
+        <article class="amen">
+          <span class="ic" aria-hidden="true">☀️</span>
+          <div><h3>Azotea social</h3><p>Terrazas con livings exteriores, mirador urbano y espacios de reunión.</p></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Imágenes del proyecto (fachadas) -->
   <section id="tours" class="container section">
     <h2>Imágenes del proyecto</h2>
-    <p class="muted" style="margin-bottom:10px">Archivos en tamaño original (escala 1:1 dentro del ancho disponible).</p>
+    <p class="muted" style="margin-bottom:10px">Vistas en alta resolución (se ajustan al ancho disponible sin recorte).</p>
 
     <div class="media-grid">
       <figure class="media-card">
         <img src="assets/imagenes/FACHADA-FRONTAL.png" alt="Fachada frontal" loading="lazy" />
-        <figcaption><strong>Fachada frontal</strong></figcaption>
+        <figcaption><strong>Fachada frontal</strong> · Ingreso peatonal marcado y núcleos verticales visibles.</figcaption>
       </figure>
 
       <figure class="media-card">
         <img src="assets/imagenes/FACHADA-LAT-DERECHA.png" alt="Fachada lateral derecha" loading="lazy" />
-        <figcaption><strong>Fachada lateral derecha</strong></figcaption>
+        <figcaption><strong>Fachada lateral derecha</strong> · Balcones corridos y ritmo de barandas.</figcaption>
       </figure>
 
       <figure class="media-card">
         <img src="assets/imagenes/FACHADA-LAT-IZQUIERDO.png" alt="Fachada lateral izquierda" loading="lazy" />
-        <figcaption><strong>Fachada lateral izquierda</strong></figcaption>
+        <figcaption><strong>Fachada lateral izquierda</strong> · Parasoles y carpinterías horizontales.</figcaption>
       </figure>
 
       <figure class="media-card">
         <img src="assets/imagenes/FACHADA-POSTERIOR.png" alt="Fachada posterior" loading="lazy" />
-        <figcaption><strong>Fachada posterior</strong></figcaption>
+        <figcaption><strong>Fachada posterior</strong> · Relación con los patios y terrazas verdes.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- Planos (imágenes en grid 1/2 columnas) -->
+  <!-- Planos (grid 1 col en móvil / 2 cols en grande) -->
   <section id="planos" class="container section">
     <h2>Planos</h2>
-    <p class="muted" style="margin-bottom:10px">Planos en alta resolución</p>
+    <p class="muted" style="margin-bottom:10px">Conjunto de plantas y fachadas — imágenes en <code>assets/planos</code>.</p>
 
     <div class="media-grid">
       <figure class="media-card">
         <img src="assets/planos/PLANTA-BAJA.png" alt="Plano de Planta Baja" loading="lazy" />
-        <figcaption><strong>Planta Baja</strong></figcaption>
+        <figcaption><strong>Planta Baja</strong> · Lobby, control y cocheras organizadas en abanico.</figcaption>
       </figure>
 
       <figure class="media-card">
-        <img src="assets/planos/PLANTA-TIPO.png" alt="Plano de Planta Tipo A" loading="lazy" />
-        <figcaption><strong>Planta Tipo</strong></figcaption>
+        <img src="assets/planos/PLANTA-TIPO.png" alt="Plano de Planta Tipo" loading="lazy" />
+        <figcaption><strong>Planta Tipo</strong> · Cuatro unidades por nivel alrededor del núcleo.</figcaption>
       </figure>
 
       <figure class="media-card">
-        <img src="assets/planos/PLANTA-AZOTEA.png" alt="Plano de Planta Tipo B" loading="lazy" />
-        <figcaption><strong>Planta Azotea</strong></figcaption>
+        <img src="assets/planos/ENTRE-PISO.png" alt="Plano de Entrepiso / Amenidades" loading="lazy" />
+        <figcaption><strong>Entrepiso</strong> · Gimnasio, salón y expansión exterior con áreas de encuentro.</figcaption>
       </figure>
 
       <figure class="media-card">
-        <img src="assets/planos/ENTRE-PISO.png" alt="Plano del nivel de Amenidades" loading="lazy" />
-        <figcaption><strong>Entre Piso</strong></figcaption>
+        <img src="assets/planos/PLANTA-AZOTEA.png" alt="Plano de Azotea" loading="lazy" />
+        <figcaption><strong>Azotea</strong> · Terrazas sociales con mobiliario y mirador urbano.</figcaption>
       </figure>
-
     </div>
   </section>
 
@@ -182,10 +254,7 @@
       <a href="#inicio" class="brand" aria-label="Volver al inicio">
         <span class="logo" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 20V9l7-4v15"/>
-            <path d="M12 20V5l7 4v11"/>
-            <path d="M7 13h2m0 3H7m8-2h2"/>
-          </svg>
+          <path d="M5 20V9l7-4v15"/><path d="M12 20V5l7 4v11"/><path d="M7 13h2m0 3H7m8-2h2"/></svg>
         </span>
         <span>
           <span class="name">Miragio Sajonia</span>
@@ -194,13 +263,13 @@
       </a>
       <div class="spacer"></div>
       <nav class="foot-links" aria-label="Enlaces de pie">
-        <a href="#edificio">El edificio</a>
+        <a href="#edificio">Proyecto</a>
         <a href="#tours">Imágenes</a>
         <a href="#planos">Planos</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
-    <div class="foot-meta">© 2025 Miraggio Sajonia · Todos los derechos reservados</div>
+    <div class="foot-meta">© 2025 Miragio Sajonia · Todos los derechos reservados</div>
   </footer>
 
   <script defer src="app.js"></script>

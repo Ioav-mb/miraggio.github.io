@@ -1,0 +1,34 @@
+/* Título */
+.page-title{margin:0 0 6px; font-size:clamp(1.4rem,2.5vw,2rem)}
+
+/* Grid responsivo */
+.gallery-grid{display:grid; gap:14px; grid-template-columns:1fr}
+@media (min-width:900px){ .gallery-grid{grid-template-columns:1fr 1fr} }
+
+.g-item{
+  border:1px solid var(--ring);
+  border-radius:14px;
+  overflow:hidden;
+  background:color-mix(in oklab, var(--paper) 92%, black 8%);
+}
+.g-item img{
+  display:block; width:100%; height:auto;
+  background:#0b0d12; cursor:zoom-in;
+}
+
+/* Lightbox */
+.lightbox{position:fixed; inset:0; background:#000a; display:grid; place-items:center; padding:24px}
+.lightbox[hidden]{display:none}
+.lb-img{
+  max-width:min(92vw,1400px);
+  max-height:80vh;
+  border-radius:14px;
+  border:1px solid var(--ring);
+  background:#0b0d12;
+  box-shadow:var(--shadow);
+}
+.lb-close{
+  position:absolute; top:14px; right:16px; width:42px; height:42px;
+  border-radius:999px; border:1px solid #ffffff55; background:#ffffff15;
+  color:#fff; font-size:22px; cursor:pointer;
+}

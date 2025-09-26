@@ -34,8 +34,7 @@ drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     const el = f.querySelector(`[data-err-for="${id}"]`);
     if (el) el.textContent = msg || '';
   }
-
-  function validEmail(v) { return /.+@.+\..+/.test(v); }
+  const validEmail = v => /.+@.+\..+/.test(v);
 
   f.addEventListener('submit', (e) => {
     e.preventDefault(); // Evita scroll al inicio/recarga
